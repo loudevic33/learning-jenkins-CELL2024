@@ -1,0 +1,47 @@
+CELL Learning Jenkins, 01-06:
+Prerequisites
+
+You will need to configure Maven as a global build tool.
+
+In the Jenkins web interface, go to:( IF YOU USING THE VBOX UBUNTU IS ALREADY INSTALLED)
+
+Manage Jenkins -> Tools -> Maven installations -> Add Maven.
+
+Give your Maven installation a name and check the option to Install automatically.
+
+Select the Save button.
+Setting up the Jenkins Job
+
+Create a freestyle job and configure it as follows:
+
+    Under Source Code Management, select Git and enter the following URL:
+
+https://github.com/loudevic33/learning-jenkins-CELL2024.git
+
+    MAKE SURE TO SET THE Branch Specifier to */03_01.
+    Add a build step using Invoke Top-Level Maven Target.
+    Select the Maven version you configured in the previous step.
+    For the goal, enter package.
+
+WINDOWS SYSTEMS
+
+Select Add build step -> Execute Windows batch command.
+
+Enter:
+
+java -cp target/hello-1.0-SNAPSHOT.jar com.learningjenkins.App
+
+Save the job and start the build.
+
+Follow this link for more details on Windows
+MacOS, Linux, and Docker
+
+Select Add build step -> Execute shell.
+
+Enter:
+
+java -cp target/hello-1.0-SNAPSHOT.jar com.learningjenkins.App
+
+Save the job and start the build.
+
+Follow this link for more details on MacOS, Linux, and Docker
